@@ -11,7 +11,7 @@ EOF
 
 function use_starship {
   # use it for bash
-  echo "eval \"$(starship init bash)"\">> "${1}/.bashrc"
+  echo "eval \"\$(starship init bash)"\">> "${1}/.bashrc"
   # use it for fish
   echo "starship init fish | source">> "${1}/.config/fish/config.fish" || true
 
