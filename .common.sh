@@ -1,9 +1,9 @@
 function write_starship_conf {
   # write some config
-  cat <<EOF >> ~/.config/starship.toml
+  cat <<EOF > "${1}/.config/starship.toml"
 [status]
 symbol = "🔴 "
-format = '\\[\$symbol\$common_meaning\$signal_name\$maybe_int\] '
+format = '\[\$symbol\$common_meaning\$signal_name\$maybe_int\] '
 map_symbol = true
 disabled = false
 EOF
@@ -11,11 +11,11 @@ EOF
 
 function use_starship {
   # use it for bash
-  echo "eval \"$(starship init bash)"\">> ~/.bashrc
+  echo "eval \"$(starship init bash)"\">> "${1}/.bashrc"
   # use it for fish
-  echo "starship init fish | source">> ~/.config/fish/config.fish || true
+  echo "starship init fish | source">> "${1}/.config/fish/config.fish" || true
 
-  write_starship_conf
+  write_starship_conf "${1}"
 }
 
 
