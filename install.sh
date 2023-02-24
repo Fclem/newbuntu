@@ -8,21 +8,16 @@ echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJgryACoMykztCkP12rvgFVUd2EM84rQjUALw6
 
 write_aliases "~/.bashrc"
 
-# elevation
-sudo su -
-
 # updates
-apt update && apt upgrade -y
+sudo apt update && apt upgrade -y
 # useful packages
-apt install -y most htop ssh-audit ncdu unzip
+sudo apt install -y most htop ssh-audit ncdu unzip
 
-write_aliases "~/.bashrc"
+sudo bash -c "source .common.sh && write_aliases \"/root/.bashrc\""
 
 # Install speedtest
-curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | bash
-apt install -y speedtest
-
-exit
+curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+sudo apt install -y speedtest
 
 ./install_qemu_agent.sh
 ./harden_ssh.sh

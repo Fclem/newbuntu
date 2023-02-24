@@ -2,12 +2,8 @@
 
 source .common.sh
 
-use_starship ~
-
-sudo su -
-
 # install starship cross-shell prompt
-snap install starship
-use_starship "/root"
+sudo snap install starship
+sudo bash -c "source .common.sh && use_starship \"/root\""
 
-exit # demote
+use_starship ~
