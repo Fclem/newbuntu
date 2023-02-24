@@ -3,7 +3,7 @@ function write_starship_conf {
   cat <<EOF >> ~/.config/starship.toml
 [status]
 symbol = "🔴 "
-format = '\[$symbol$common_meaning$signal_name$maybe_int\] '
+format = '\\[\$symbol\$common_meaning\$signal_name\$maybe_int\] '
 map_symbol = true
 disabled = false
 EOF

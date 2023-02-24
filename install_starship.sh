@@ -5,7 +5,7 @@ source .common.sh
 sudo su -
 
 # install starship cross-shell prompt
-snap install starship && \
+snap install starship
 use_starship
 
 exit # demote
