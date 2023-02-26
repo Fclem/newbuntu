@@ -2,9 +2,6 @@
 
 source .common.sh
 
-# workaround for OS with no sudo (like pve)
-sudo -V >/dev/null || alias sudo=""
-
 sudo apt install -y unzip exa
 
 # replace exa binary with one that has git support build in
