@@ -10,7 +10,7 @@ fi
 # no password or root login for OpenSSH
 cat <<EOF | tee -a /etc/ssh/sshd_config.d/no_passwd.conf > /dev/null
 PasswordAuthentication no
-PermitRootLogin no
+PermitRootLogin yes
 UsePAM no
 EOF
 
@@ -19,6 +19,8 @@ EOF
 ###
 # hardening of OpenSSH
 ###
+# bbackup
+cp /etc/ssh /etc/_ssh.back
 # Re-generate the RSA and ED25519 keys
 rm /etc/ssh/ssh_host_*
 ssh-keygen -t rsa -b 4096 -f /etc/ssh/ssh_host_rsa_key -N ""
@@ -29,7 +31,7 @@ mv /etc/ssh/moduli.safe /etc/ssh/moduli
 # Enable the RSA and ED25519 keys
 sed -i 's/^\#HostKey \/etc\/ssh\/ssh_host_\(rsa\|ed25519\)_key$/HostKey \/etc\/ssh\/ssh_host_\1_key/g' /etc/ssh/sshd_config
 # Restrict supported key exchange, cipher, and MAC algorithms
-cat <<EOF | tee /etc/ssh/sshd_config > /dev/null
+cat <<EOF | tee /etc/ssh/sshd_config.d/hardened.conf > /dev/null
 # Restrict key exchange, cipher, and MAC algorithms, as per sshaudit.com
 # hardening guide.
 KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,gss-curve25519-sha256-,diffie-hellman-group16-sha512,gss-group16-sha512-,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256

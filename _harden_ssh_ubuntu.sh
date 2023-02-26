@@ -18,6 +18,8 @@ sudo /etc/init.d/ssh reload
 ###
 # hardening of OpenSSH
 ###
+# bbackup
+sudo cp /etc/ssh /etc/_ssh.back
 # Re-generate the RSA and ED25519 keys
 sudo rm /etc/ssh/ssh_host_*
 sudo ssh-keygen -t rsa -b 4096 -f /etc/ssh/ssh_host_rsa_key -N ""
@@ -28,7 +30,7 @@ sudo mv /etc/ssh/moduli.safe /etc/ssh/moduli
 # Enable the RSA and ED25519 keys
 sudo sed -i 's/^\#HostKey \/etc\/ssh\/ssh_host_\(rsa\|ed25519\)_key$/HostKey \/etc\/ssh\/ssh_host_\1_key/g' /etc/ssh/sshd_config
 # Restrict supported key exchange, cipher, and MAC algorithms
-cat <<EOF | sudo tee /etc/ssh/sshd_config > /dev/null
+cat <<EOF | sudo tee /etc/ssh/sshd_config.d/hardened.conf > /dev/null
 # Restrict key exchange, cipher, and MAC algorithms, as per sshaudit.com
 # hardening guide.
 KexAlgorithms sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,gss-curve25519-sha256-,diffie-hellman-group16-sha512,gss-group16-sha512-,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256
