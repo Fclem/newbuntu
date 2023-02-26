@@ -42,4 +42,4 @@ EOF
 }
 
 # workaround for OS with no sudo (like pve)
-sudo -V >/dev/null |alias sudo="echo -n;"
+sudo -V >/dev/null || alias sudo="echo -n;"
