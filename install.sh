@@ -27,5 +27,3 @@ sudo apt install -y speedtest
 ./install_exa.sh
 ./install_fish.sh
 ./install_starship.sh
-
-

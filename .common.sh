@@ -43,4 +43,4 @@ EOF
 }
 
 # workaround for OS with no sudo (like pve)
-sudo -V >/dev/null || alias sudo=""
+which sudo >/dev/null || alias sudo=""
