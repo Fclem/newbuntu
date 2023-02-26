@@ -20,7 +20,7 @@ EOF
 # hardening of OpenSSH
 ###
 # bbackup
-cp /etc/ssh /etc/_ssh.back
+cp -R /etc/ssh /etc/_ssh.back
 # Re-generate the RSA and ED25519 keys
 rm /etc/ssh/ssh_host_*
 ssh-keygen -t rsa -b 4096 -f /etc/ssh/ssh_host_rsa_key -N ""

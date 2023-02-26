@@ -19,7 +19,7 @@ sudo /etc/init.d/ssh reload
 # hardening of OpenSSH
 ###
 # bbackup
-sudo cp /etc/ssh /etc/_ssh.back
+sudo cp -R /etc/ssh /etc/_ssh.back
 # Re-generate the RSA and ED25519 keys
 sudo rm /etc/ssh/ssh_host_*
 sudo ssh-keygen -t rsa -b 4096 -f /etc/ssh/ssh_host_rsa_key -N ""
