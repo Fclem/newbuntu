@@ -1,6 +1,6 @@
 function write_starship_conf {
   # write some config
-  cat <<EOF > "${1}/.config/starship.toml"
+  cat <<EOF > ${1}/.config/starship.toml
 [status]
 symbol = "🔴 "
 format = '\[\$symbol\$common_meaning\$signal_name\$maybe_int\] '
@@ -11,9 +11,9 @@ EOF
 
 function use_starship {
   # use it for bash
-  echo "eval \"\$(starship init bash)"\">> "${1}/.bashrc"
+  echo "eval \"\$(starship init bash)"\">> ${1}/.bashrc
   # use it for fish
-  echo "starship init fish | source">> "${1}/.config/fish/config.fish" || true
+  echo "starship init fish | source">> ${1}/.config/fish/config.fish || true
 
   write_starship_conf "${1}"
 }
@@ -21,8 +21,9 @@ function use_starship {
 
 
 function write_aliases {
+  touch  $1
   # useful aliases
-  cat <<EOF >> "$1"
+  cat <<EOF >> $1
 alias fetch="git fetch"
 alias pull="git pull"
 alias fap="fetch && pull"

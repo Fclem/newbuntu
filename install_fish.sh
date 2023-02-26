@@ -10,8 +10,9 @@ sudo chsh -s "$(which fish)"
 
 # for base user
 write_aliases "~/.config/fish/config.fish"
-echo -e "thefuck --alias | source\nalias please=\"fuck --yeah\"" | sudo tee -a  ~/.config/fish/config.fish > /dev/null
+echo -e "thefuck --alias | source\nalias please=\"fuck --yeah\"" | tee -a  ~/.config/fish/config.fish > /dev/null
 
 # use fish
 this_user=$(whoami)
 sudo chsh -s "$(which fish)" "${this_user}"
+  
