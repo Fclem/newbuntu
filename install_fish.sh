@@ -15,4 +15,4 @@ echo -e "thefuck --alias | source\nalias please=\"fuck --yeah\"" | tee -a  ~/.co
 # use fish
 this_user=$(whoami)
 sudo chsh -s "$(which fish)" "${this_user}"
-  
+

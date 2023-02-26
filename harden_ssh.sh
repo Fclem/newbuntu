@@ -2,7 +2,8 @@
 
 source .common.sh
 
-all_common_keys_alg="curve25519-sha256,curve25519-sha256@libssh.org,gss-curve25519-sha256-,diffie-hellman-group16-sha512,gss-group16-sha512-,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256"
+all_common_keys_alg="diffie-hellman-group14-sha256,curve25519-sha256,curve25519-sha256@libssh.org,gss-curve25519-sha256-,diffie-hellman-group16-sha512,gss-group16-sha512-,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256"
+keys_alg=$all_common_keys_alg
 
 source /etc/os-release
 os_name="$(uname -v)"
@@ -13,7 +14,7 @@ then
     exit 1
   fi
   pwd_login="yes"
-  keys_alg="${all_common_keys_alg}"
+  # keys_alg="${all_common_keys_alg}"
 elif [[ $os_name == *"Ubuntu"* ]];
 then
   if [[ $VERSION_ID != "22.04" || $ID != "ubuntu" ]]; then
@@ -21,7 +22,7 @@ then
     exit 1
   fi
   pwd_login="no"
-  keys_alg="sntrup761x25519-sha512@openssh.com,${all_common_keys_alg}"
+  # keys_alg="sntrup761x25519-sha512@openssh.com,${all_common_keys_alg}"
 fi;
 
 # no password or root login for OpenSSH
