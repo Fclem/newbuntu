@@ -40,3 +40,6 @@ alias lt="lg -T -L 3"
 alias ncdu="ncdu --color dark"
 EOF
 }
+
+# workaround for OS with no sudo (like pve)
+sudo -V >/dev/null |alias sudo="echo -n;"

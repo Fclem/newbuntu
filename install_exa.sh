@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo apt install -y exa
+sudo apt install -y unzip exa
 
 # replace exa binary with one that has git support build in
 exa_loc=$(which exa)

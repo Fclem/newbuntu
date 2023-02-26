@@ -3,7 +3,7 @@
 source .common.sh
 
 # install starship cross-shell prompt
-sudo snap install starship
+sudo snap install starship || curl -sS https://starship.rs/install.sh | sudo sh
 sudo bash -c "source .common.sh && use_starship \"/root\""
 
 use_starship ~
