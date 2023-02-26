@@ -38,8 +38,9 @@ alias lag="la -g"
 alias lat="lag -T -L 3"
 alias lt="lg -T -L 3"
 alias ncdu="ncdu --color dark"
+alias please="fuck --yeah"
 EOF
 }
 
 # workaround for OS with no sudo (like pve)
-sudo -V >/dev/null || alias sudo="echo -n;"
+sudo -V >/dev/null || alias sudo=""
