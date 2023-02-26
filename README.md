@@ -1,4 +1,6 @@
-# Only meant for Ubuntu 22.04 server
+# Meant for :  
+* Ubuntu 22.04 server  
+* PVE 7.3-6  
 
 ## To install all :
 
