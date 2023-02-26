@@ -45,3 +45,5 @@ service ssh restart
 # own_ip=$(curl )
 echo -e "you will need to remove old server pub key from your ssh config, using :
 # ssh-keygen -f \"~/.ssh/known_hosts\" -R \"ip or domain used\""
+
+service sshd status
