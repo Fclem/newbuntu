@@ -6,7 +6,7 @@ source .common.sh
 echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINhoEB92fViP/YL3fmoQBSM80AVjozDlyubmyNErcpkK clement@fiere.fr" >> ~/.ssh/authorized_keys
 echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJgryACoMykztCkP12rvgFVUd2EM84rQjUALw6MI+iuJ clement.fiere@eficode.com" >> ~/.ssh/authorized_keys
 
-write_aliases "~/.bashrc"
+write_aliases ~/.bashrc
 echo -e "eval \$(thefuck --alias fuck)\nalias please=\"fuck --yeah\"" >> ~/.bashrc
 
 # updates
